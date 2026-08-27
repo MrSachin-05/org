@@ -1,6 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  Show,
+  SignInButton,
+  UserButton,
+} from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
 
 const Header = () => {
   return (
@@ -22,6 +28,29 @@ const Header = () => {
             priority
           />
         </Link>
+
+        {/* Right Side Actions */}
+        <div className="flex items-center gap-2">
+
+          {/* Signed In */}
+          <Show when="signed-in">
+            {/* Create Event */}
+            <UserButton />
+          </Show>
+
+          {/* Signed Out */}
+          <Show when="signed-out">
+            <SignInButton mode="modal">
+              <Button
+                size="sm"
+                className="rounded-full bg-[#6c47ff] text-white hover:bg-[#7957ff]"
+              >
+                Sign In
+              </Button>
+            </SignInButton>
+          </Show>
+
+        </div>
 
       </div>
     </nav>
