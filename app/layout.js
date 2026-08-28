@@ -54,7 +54,7 @@ export default function RootLayout({ children }) {
             {/* Footer */}
             <footer className="border-t border-gray-800/50 py-8 px-6 max-w-7xl mx-auto">
               <div className="text-sm text-gray-400">
-                Made with ❤️ by Mr. Sachin-05
+                Made with 🖤 by Mr.Sachin-05
               </div>
             </footer>
 
