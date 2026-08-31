@@ -4,10 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
+import {Authenticated , Unauthenticated} from "@convex/react";
+import { useStoreUser } from "@/hooks/use-store-user";
 import { BarLoader } from "react-spinners";
 
 const Header = () => {
-  const { isLoaded, isSignedIn } = useUser();
+  const { isLoading} = useStoreUser();
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-transparent z-50 border-b border-white/10">
@@ -41,9 +43,16 @@ const Header = () => {
             </SignInButton>
           )}
         </div>
-         <div className="absolute bottom-0 left-0 w-full">
-            <BarLoader width={"100%"} color="#a855f7" />
-          </div>
+    <div className="absolute bottom-0 left-0 w-full">
+  <BarLoader
+    width={"100%"}
+    color="#8b5cf6"
+    cssOverride={{
+      background:
+        "linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6)",
+    }}
+  />
+</div>
       </div>
     </nav>
   );
